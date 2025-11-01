@@ -4,8 +4,6 @@ import HeaderLink from "./HeaderLink";
 import Typography from "@mui/material/Typography";
 import SearchIcon from "@mui/icons-material/Search";
 
-// Note: Container is no longer imported
-
 export default function Header() {
   return (
     <div className=" bg-[#1d1d1d] text-[#919191] border-b border-[#2f2f2f] mx-[4rem] text-[15px]">
@@ -76,7 +74,7 @@ export default function Header() {
             <div className="w-[1px] h-full bg-[#919191]"> &nbsp; </div>
             <HeaderLink
               text={"Register"}
-              location={"/signup"}
+              location={"signup"}
               color={"#ffffff"}
               hoverColor={"inherit"}
             />

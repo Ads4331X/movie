@@ -1,16 +1,19 @@
 import { Box, Container } from "@mui/material";
 import Header from "../Header/Header";
 import { Link } from "react-router-dom";
-import { fetch } from "../../api/randomimg.jsx";
+import { useRandomImage } from "../../api/randomimg.jsx";
 
 export default function HomePage() {
-  let fe = fetch;
-  console.log(fe);
+  let { imgUrl } = useRandomImage();
+
   return (
     <>
       <Header />
 
-      <div className="bg-[url('https://img.yts.mx/assets/images/movies/anemone_2025/background.jpg')] bg-cover bg-right bg-no-repeat w-full">
+      <div
+        className="bg-cover bg-right bg-no-repeat w-full h-screen"
+        style={{ backgroundImage: `url(${imgUrl})` }}
+      >
         <Box className="[background:linear-gradient(to_bottom,rgba(29,29,29,0.65),rgba(29,29,29,1))] h-64 w-full hidden-sm">
           {" "}
           <Container className="flex flex-col items-center h-screen justify-start text-white hidden-sm">

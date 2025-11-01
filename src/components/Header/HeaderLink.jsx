@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function HeaderLink({ location, text, color, hoverColor }) {
   return (
     <Link
-      to={`/${location}`}
+      to={location.startsWith("/") ? location : `/${location}`}
       className={`no-underline  `}
       style={{
         color: color,

@@ -14,7 +14,14 @@ export default function HomePage() {
         className="bg-cover bg-right bg-no-repeat w-full h-screen"
         style={{ backgroundImage: `url(${imgUrl})` }}
       >
-        <Box className="[background:linear-gradient(to_bottom,rgba(29,29,29,0.65),rgba(29,29,29,1))] h-64 w-full hidden-sm">
+        <Box
+          className="h-64 w-full hidden-sm"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(7, 7, 7, 0.65) 0%, rgba(0, 0, 0, 1) 100%)",
+            zIndex: 16,
+          }}
+        >
           {" "}
           <Container className="flex flex-col items-center h-screen justify-start text-white hidden-sm">
             <div className="text-center mt-[60px]">

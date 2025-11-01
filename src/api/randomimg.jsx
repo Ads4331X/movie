@@ -1,20 +1,25 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export function useRandomImage() {
-  const access_key = "mrFwbIKASt9jtRX6Aso1mX4FG4K2UcYgeSSd3cv2Kj8";
-  const secret_key = "HPpIKkUEbVKD-NVeEhgY1LoXnRIxeXfcNd4xPHqOh7g";
   const [imgUrl, setImgUrl] = useState("");
+  const [isloaded, seIsLoaded] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`https://api.unsplash.com/photos/random?client_id=${access_key}`)
-      .then((response) => {
-        setImgUrl(response.data.urls.regular);
-        console.log(response.data);
-      })
-      .catch((err) => console.error(err));
+    async function fetchImage() {
+      try {
+        const response = await axios.get("https://picsum.photos/800/600", {
+          responseType: "blob",
+        });
+        const imageUrl = URL.createObjectURL(response.data);
+        setImgUrl(imageUrl);
+        seIsLoaded(true);
+      } catch (err) {
+        console.error("Error fetching image:", err);
+      }
+    }
+    fetchImage();
   }, []);
 
-  return { imgUrl };
+  return { imgUrl, isloaded };
 }

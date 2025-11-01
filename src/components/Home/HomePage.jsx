@@ -1,10 +1,18 @@
-import { Box, Container } from "@mui/material";
+import { Box, Container, CircularProgress } from "@mui/material";
 import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 import { useRandomImage } from "../../api/randomimg.jsx";
 
 export default function HomePage() {
-  let { imgUrl } = useRandomImage();
+  let { imgUrl, isloaded } = useRandomImage();
+
+  if (!isloaded) {
+    return (
+      <div className="flex items-center justify-center h-full w-full mt-[2rem]">
+        <CircularProgress />
+      </div>
+    );
+  }
 
   return (
     <>

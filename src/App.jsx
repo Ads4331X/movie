@@ -1,14 +1,13 @@
-
-import HomePage from './components/Home/HomePage'
+import HomePage from "./components/Home/HomePage";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "./theme";
 
 function App() {
-  
   return (
-    <div >
-      <HomePage/>
-     
-    </div>
-  )
+    <ThemeProvider theme={theme}>
+      <HomePage />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

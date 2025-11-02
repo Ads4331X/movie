@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-[#1d1d1d] text-[#919191] border-b border-[#2f2f2f] text-[12px]">
       {" "}
-      <div className="ml-[1rem] mr-[1rem]">
+      <div className="ml-6 mr-6">
         <Box className="flex justify-around items-center px-4">
           <Box className="flex items-center">
             <Link to={"/"} className="no-underline">

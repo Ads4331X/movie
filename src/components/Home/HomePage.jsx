@@ -5,6 +5,7 @@ import { useRandomImage } from "../../hooks/useRandomImage.jsx";
 import { useToogleSearchInfo } from "../../hooks/useToogleSearchInfo.jsx";
 import { ShowSearchFilters } from "../Header/ShowSearchFilters.jsx";
 import { SearchProvider } from "../../context/SearchContext.jsx";
+import { MovieCard } from "../Card/MovieCard.jsx";
 
 export default function HomePage() {
   const { imgUrl, isloaded } = useRandomImage();
@@ -61,6 +62,7 @@ export default function HomePage() {
             </Link>
           </Container>
         </Box>
+        <MovieCard />
       </div>
     </SearchProvider>
   );

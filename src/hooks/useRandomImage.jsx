@@ -6,14 +6,21 @@ export function useRandomImage() {
   const [isloaded, seIsLoaded] = useState(false);
 
   useEffect(() => {
+    let imageUrl;
     async function loadImg() {
       const response = await fetchImage();
-      const imageUrl = URL.createObjectURL(response.data);
+      imageUrl = URL.createObjectURL(response.data);
       setImgUrl(imageUrl);
       seIsLoaded(true);
     }
 
     loadImg();
+
+    return () => {
+      if (imageUrl) {
+        URL.revokeObjectURL(imageUrl);
+      }
+    };
   }, []);
 
   return { imgUrl, isloaded };

@@ -30,6 +30,7 @@ export default function HomePage() {
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             filter: "blur(16px)",
+            willChange: "filter",
           }}
         />
 

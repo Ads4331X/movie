@@ -6,7 +6,6 @@ import StarIcon from "@mui/icons-material/Star";
 
 export function MovieCard() {
   const { movies } = useMovie();
-  console.log(movies);
 
   return (
     <Container maxWidth="xl">
@@ -17,7 +16,6 @@ export function MovieCard() {
           padding: "25px",
           fontWeight: "bold",
           fontSize: "20px",
-          marginLeft: "68px",
         }}
       >
         Latest YIFY Movies Torrents
@@ -36,10 +34,10 @@ export function MovieCard() {
         }}
       >
         {movies.map((movie) => {
-          return (
+          return movie ? (
             <Card
               component="a"
-              href="#"
+              href={`${movie.id}`}
               key={movie.id}
               sx={{
                 display: "flex",
@@ -141,8 +139,7 @@ export function MovieCard() {
                         marginTop: 0,
                       }}
                     >
-                      {movie.genres[0]} <br />
-                      {movie.genres[1]}
+                      {movie.genres?.slice(0, 2).join(" / ")}
                     </Typography>
                   </Box>
                   <Button
@@ -162,7 +159,7 @@ export function MovieCard() {
                 </Box>
               </CardContent>
             </Card>
-          );
+          ) : null;
         })}
       </Box>
     </Container>

@@ -9,7 +9,7 @@ export function MovieCard() {
   console.log(movies);
 
   return (
-    <Box>
+    <Container maxWidth="xl">
       <Box
         sx={{
           color: "white",
@@ -25,11 +25,14 @@ export function MovieCard() {
 
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          display: "grid",
+          placeItems: "center",
+          gridTemplateColumns: [
+            "auto auto",
+            "auto auto auto",
+            "auto auto auto auto",
+          ],
           gap: 4,
-          flexWrap: "wrap",
         }}
       >
         {movies.map((movie) => {
@@ -162,6 +165,6 @@ export function MovieCard() {
           );
         })}
       </Box>
-    </Box>
+    </Container>
   );
 }

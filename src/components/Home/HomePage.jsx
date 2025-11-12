@@ -62,8 +62,8 @@ export default function HomePage() {
             </Link>
           </Container>
         </Box>
-        <MovieCard />
       </div>
+      <MovieCard />
     </SearchProvider>
   );
 }
